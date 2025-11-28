@@ -7,7 +7,7 @@ def main():
 
   print("\nEnter the function f(x) for which you want to find the root.")
   x = sp.symbols('x')
-  f = sp.sympify(input("f(x) = "))
+  f = sp.parse_expr(input("f(x) = "), transformations="all")
   # f = ln(x) - (0.10 * x ** 2) + (0.05 * sin(x)) - 0.05
   tolerance = float(input("\nEnter the tolerance level (e.g., 0.0001): "))
 
