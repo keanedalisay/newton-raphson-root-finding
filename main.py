@@ -2,6 +2,7 @@ from itertools import count
 
 import streamlit as st
 import sympy as sp
+import pandas as pd
 
 def cli_app():
   print("=== Newton-Raphson Method for Root-Finding ===")
@@ -49,20 +50,31 @@ def streamlit_app():
     x0 = initial_guess
     x1 = None
 
-    st.write(f"### Iteration 0: x0 = {x0}, f(x0) = {f.subs(x, x0)}")
+    iteration_table = pd.DataFrame(columns=["Iteration", "x", "f(x)", "f'(x)", "x1 - x0"])
+
     for i in count(1):
       f_x0 = f.evalf(n=11, subs={x: x0})
       deriv_f_x0 = deriv.doit().evalf(n=11, subs={x: x0})
 
       x1 = x0 - (f_x0 / deriv_f_x0)
+      f_x1 = f.evalf(n=11, subs={x: x1})
+      deriv_f_x1 = deriv.doit().evalf(n=11, subs={x: x1})
 
-      st.write(f"### Iteration {i}: x{i} = {x1}, f(x{i}) = {f.evalf(n=11, subs={x: x1})}")
+      gap = abs(x1 - x0)
 
-      if abs(x1 - x0) < tolerance:
+      if i == 1:
+          iteration_table.loc[i-1] = [i-1, x0, f_x0, deriv_f_x0, 0]
+
+      iteration_table.loc[i] = [i, x1, f_x1, deriv_f_x1, gap]
+      
+
+      if gap < tolerance:
         st.write(f"### Converged at iteration {i} with root approximation: {x1.evalf(n=11)}")
         break
 
       x0 = x1
+    
+    st.table(iteration_table)
 
 if __name__ == "__main__":
   streamlit_app()
