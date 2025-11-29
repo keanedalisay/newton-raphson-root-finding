@@ -5,6 +5,9 @@ import sympy as sp
 import pandas as pd
 
 def home():
+  st.write("""<style> 
+  .stTable table tbody tr:last-child{ background: rgba(33, 195, 84, 0.1); } 
+           </style>""", unsafe_allow_html=True)
   st.title("Newton-Raphson Method for Root-Finding")
 
   st.divider()
@@ -52,10 +55,12 @@ def home():
       if gap < tolerance:
         progress_info.empty()
         st.header("Result")
-        st.write(f"Converged at iteration {i} with root approximation: {x1.evalf(n=11)}")
+        st.success(f"Converged at iteration {i} with root approximation: {x1.evalf(n=11)}")
         break
 
       x0 = x1
+    
+    iteration_table = iteration_table.set_index("Iteration")
     
     st.table(iteration_table)
 
