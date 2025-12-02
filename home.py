@@ -4,6 +4,8 @@ import streamlit as st
 import sympy as sp
 import pandas as pd
 
+from streamlit.components.v1 import html
+
 def home():
   st.write("""<style> 
   .stTable table tbody tr:last-child{ background: rgba(33, 195, 84, 0.1); } 
@@ -12,8 +14,12 @@ def home():
 
   st.divider()
 
-  f_input = st.text_input("Enter the function f(x) for which you want to find the root.", value="x^2 -4x - 7")
-
+  f_input = st.text_input("Enter the function for which you want to find the root.", value="x^2 -4x - 7")
+  script = f"""
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+  <p>\(f(x) = {f_input}\)</p>
+  """
+  html(script, height=50)
   col1, col2 = st.columns(2)
 
   with col1:
