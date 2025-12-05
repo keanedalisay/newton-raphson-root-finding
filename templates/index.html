@@ -4,17 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Netwon-Raphson Method for Root Finding</title>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+  <script defer type="module" src="/static/scripts/main.js"></script>
+  <script defer type="module" src="/static/scripts/mathjax.js"></script>
+  <script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
 </head>
 <body>
   <main>
     <h1>Newton-Raphson for Root Finding</h1>
     <section>
-      <form method="post" action="/api/newton-raphson/root">
+      <form data-js="newton-raphson" method="post" action="/api/newton-raphson/root">
         <label for="function"> Enter a function \(f(x)\): 
-          <input type="text" id="function" name="function">
+          <input data-js="function" type="text" id="function" name="function">
         </label>
-        <label for="initial_guess"> Initial Guess \(x0\):
+        <p data-js="function_preview"></p>
+        <label for="initial_guess"> Initial Guess \(x_0\):
           <input type="number" id="initial_guess" name="initial_guess">
         </label>
         <label for="tolerance"> Tolerance \(ε\):
@@ -25,7 +28,9 @@
     </section>
     <section>
       <h2>Results</h2>
-      <!-- Results are placed here -->
+      <div data-js="results">
+
+      </div>
     </section>
   </main>
 </body>
