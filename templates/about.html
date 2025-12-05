@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About the Newton-Raphson Method</title>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <main>
+    <h1>About the Newton-Raphson Method</h1>
+    <section>
+      <p>
+        The Newton-Raphson method is an iterative numerical technique used to find approximate roots of real-valued functions. It is based on the idea of using tangents to approximate the function and refine guesses for the root.
+      </p>
+      <h2>How It Works</h2>
+      <p>
+        Given a function \(f(x)\) and its derivative \(f'(x)\), the method starts with an initial guess \(x_0\). The next approximation \(x_{n+1}\) is calculated using the formula:
+      </p>
+      <p>
+        \[
+        x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+        \]
+      </p>
+      <p>
+        This process is repeated until the difference between successive approximations is less than a specified tolerance level \(ε\), or until a maximum number of iterations is reached.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
