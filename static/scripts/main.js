@@ -16,7 +16,7 @@ functionInput.addEventListener('input', function () {
   //
   functionPreview.insertAdjacentHTML(
     'beforeend',
-      `\\(${functionInput.value}\\)`
+      `<i style="font-size: 1.4rem;">Preview:</i> <br>\\(f(x)\\) = \\(${functionInput.value}\\)`
   )
 
   updateMathJax()
@@ -47,12 +47,19 @@ newtonRaphsonForm.addEventListener('submit', async (event) => {
 
     const result = await response.json()
 
+    resultsDiv.innerHTML = '' // Clear previous results
+
+    resultsDiv.insertAdjacentHTML(
+      'beforebegin',
+      '<h2>Results</h2>'
+    )
+
     resultsDiv.insertAdjacentHTML(
       'beforeend',
       `
-      <p>Root: ${result.root_approximation}</p>
-      <p>Iterations: ${result.iterations}</p>
-      <p>Converged: ${result.converged}</p>
+      <p>With <b>${result.iterations} iterations</b>, the approximate root is <b>${result.root_approximation}</b>.</p>
+      <p>The function value at this root approximation is <b>${result.function_value_at_root}</b>.</p>
+      <p>The derivative value at this root approximation is <b>${result.derivative_value_at_root}</b>.</p>
       <hr>
       `
     )
@@ -69,7 +76,7 @@ newtonRaphsonForm.addEventListener('submit', async (event) => {
     for (const [i, row] of Object.entries(result.iteration_table)) {
       tableHTML += `
         <tr>
-          <td>${i}</td>
+          <td>${parseInt(i)}</td>
           <td>${row.x}</td>
           <td>${row['f(x)']}</td>
           <td>${row["f'(x)"]}</td>

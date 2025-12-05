@@ -9,8 +9,6 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-  url_for('static', filename='/scripts/main.js')
-  url_for('static', filename='/scripts/mathjax.js')
   return render_template("index.html")
 
 @app.route("/about")
@@ -56,7 +54,9 @@ def newton_raphson_root():
       return jsonify({
         "converged": True,
         "iterations": i,
-        "root_approximation": np.float64(x1.evalf(n=11)),
+        "root_approximation": np.float64(x1),
+        "function_value_at_root": np.float64(f_x1),
+        "derivative_value_at_root": np.float64(deriv_f_x1),
         "iteration_table": iteration_table.set_index("Iteration").to_dict(orient="index"),
         "error": ""
       })
@@ -72,3 +72,8 @@ def newton_raphson_root():
 
 if __name__ == "__main__":
   app.run(debug=True)
+
+  with app.app_context():
+    url_for('static', filename='/scripts/main.js')
+    url_for('static', filename='/scripts/mathjax.js')
+    url_for('static', filename='/styles/main.css')
