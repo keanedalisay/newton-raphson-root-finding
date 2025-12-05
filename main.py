@@ -1,13 +1,10 @@
-import streamlit as st
+from flask import Flask, render_template
 
-def streamlit_app():
-  pages = st.navigation([
-    st.Page("home.py", title="Home"),
-    st.Page("about.py", title="About"),
-    st.Page("help.py", title="Help")
-  ])
+app = Flask(__name__)
 
-  pages.run()
+@app.route("/")
+def home():
+  return render_template("index.html")
 
 if __name__ == "__main__":
-  streamlit_app()
+  app.run(debug=True)
