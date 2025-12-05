@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, url_for
 from itertools import count
 
 import sympy as sp
@@ -9,6 +9,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
+  url_for('static', filename='/scripts/main.js')
+  url_for('static', filename='/scripts/mathjax.js')
   return render_template("index.html")
 
 @app.route("/about")
@@ -21,7 +23,7 @@ def help():
 
 @app.route("/api/newton-raphson/root", methods=["POST"])
 def newton_raphson_root():
-  data = request.form
+  data = request.json
   f_input = data.get("function")
   initial_guess = float(data.get("initial_guess"))
   tolerance = float(data.get("tolerance"))
