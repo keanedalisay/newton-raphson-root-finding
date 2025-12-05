@@ -4,31 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Netwon-Raphson Method for Root Finding</title>
+  <link rel="stylesheet" href="/static/stylesheets/main.css" type="text/css">
   <script defer type="module" src="/static/scripts/main.js"></script>
   <script defer type="module" src="/static/scripts/mathjax.js"></script>
   <script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
   <main>
-    <h1>Newton-Raphson for Root Finding</h1>
+    <nav>
+      <h1>Newton-Raphson for Root Finding</h1>
+      <div class="nav__links">
+        <a href="/about">About</a>
+        <a href="/help">Help</a>
+      </div>
+    </nav>
     <section>
       <form data-js="newton-raphson" method="post" action="/api/newton-raphson/root">
-        <label for="function"> Enter a function \(f(x)\): 
-          <input data-js="function" type="text" id="function" name="function">
+        <label for="function"> \(f(x)\) =
+          <input data-js="function" type="text" id="function" name="function" required>
+          <p class="function_preview" data-js="function_preview"><i style="font-size: 1.4rem;">Preview:</i> <br>\(f(x)\) =  </p>
         </label>
-        <p data-js="function_preview"></p>
-        <label for="initial_guess"> Initial Guess \(x_0\):
-          <input type="number" id="initial_guess" name="initial_guess">
+        <label for="initial_guess"> \(x_0\) =
+          <input type="number" id="initial_guess" name="initial_guess" value="1" required>
         </label>
-        <label for="tolerance"> Tolerance \(ε\):
-          <input type="number" id="tolerance" name="tolerance" step="any">
+        <label for="tolerance"> \(ε\) =
+          <input type="number" id="tolerance" name="tolerance" value="0.0001" required>
         </label>
         <button type="submit"> Find root </button>
       </form>
     </section>
+    <hr>
     <section>
-      <h2>Results</h2>
-      <div data-js="results">
+      <div class="results" data-js="results">
 
       </div>
     </section>
