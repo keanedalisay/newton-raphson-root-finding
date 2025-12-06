@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/static/stylesheets/main.css" type="text/css">
   <link rel="stylesheet" href="/static/stylesheets/home.css" type="text/css">
   <script defer type="module" src="/static/scripts/main.js"></script>
+  <script defer type="module" src="/static/scripts/home.js"></script>
   <script defer type="module" src="/static/scripts/mathjax.js"></script>
   <script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +27,7 @@
       <form data-js="newton-raphson" method="post" action="/api/newton-raphson/root">
         <label for="function"> \(f(x)\) =
           <input data-js="function" type="text" id="function" name="function" required>
-          <p class="math_notation_preview" data-js="function_preview"><span>Preview: </span> <br>\(f(x)\) =  </p>
+          <p class="math_notation_preview" data-js="function_preview"><span class="math_notation_preview__label">Preview: </span> <br> <span data-js="function_text">\(f(x)\) =</span>  </p>
         </label>
         <label for="initial_guess"> \(x_0\) =
           <input type="number" id="initial_guess" name="initial_guess" value="1" required>
