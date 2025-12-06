@@ -1,0 +1,16 @@
+table tr:last-of-type {
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #45a049;
+}
+table tr:last-of-type td:first-of-type {
+  background-color: #45a049;
+}
+
+.results-section > p {
+  margin: .5rem 0;
+}
+
+.results-section > p > b {
+  color: #45a049;
+}

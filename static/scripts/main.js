@@ -5,7 +5,7 @@ const newtonRaphsonForm = document.querySelector(
 )
 const functionInput = document.querySelector('input[data-js="function"]')
 const functionPreview = document.querySelector('p[data-js="function_preview"]')
-const resultsDiv = document.querySelector('div[data-js="results"]')
+const resultsSection = document.querySelector('section[data-js="results-section"]')
 
 functionPreview.insertAdjacentHTML('beforeend', `\\(${functionInput.value}\\)`)
 
@@ -16,7 +16,7 @@ functionInput.addEventListener('input', function () {
   //
   functionPreview.insertAdjacentHTML(
     'beforeend',
-      `<i style="font-size: 1.4rem;">Preview:</i> <br>\\(f(x)\\) = \\(${functionInput.value}\\)`
+      `<span>Preview:</span> <br>\\(f(x)\\) = \\(${functionInput.value}\\)`
   )
 
   updateMathJax()
@@ -47,16 +47,12 @@ newtonRaphsonForm.addEventListener('submit', async (event) => {
 
     const result = await response.json()
 
-    resultsDiv.innerHTML = '' // Clear previous results
+    resultsSection.innerHTML = '' // Clear previous results
 
-    resultsDiv.insertAdjacentHTML(
-      'beforebegin',
-      '<h2>Results</h2>'
-    )
-
-    resultsDiv.insertAdjacentHTML(
+    resultsSection.insertAdjacentHTML(
       'beforeend',
       `
+      <h2>Root-Finding Results</h2>
       <p>With <b>${result.iterations} iterations</b>, the approximate root is <b>${result.root_approximation}</b>.</p>
       <p>The function value at this root approximation is <b>${result.function_value_at_root}</b>.</p>
       <p>The derivative value at this root approximation is <b>${result.derivative_value_at_root}</b>.</p>
@@ -85,7 +81,7 @@ newtonRaphsonForm.addEventListener('submit', async (event) => {
 
     tableHTML += '</table><hr>'
 
-    resultsDiv.insertAdjacentHTML('beforeend', tableHTML)
+    resultsSection.insertAdjacentHTML('beforeend', tableHTML)
 
     updateMathJax()
   } catch (error) {
