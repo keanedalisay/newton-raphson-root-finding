@@ -4,18 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Help</title>
+  <link rel="stylesheet" href="/static/stylesheets/main.css" type="text/css">
+  <link rel="stylesheet" href="/static/stylesheets/help.css" type="text/css">
+  <script defer type="module" src="/static/scripts/main.js"></script>
+  <script defer type="module" src="/static/scripts/mathjax.js"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libertinus+Math&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
   <main>
-    <h1>Help</h1>
+    <header>
+      <a href="/"><h1>Newton-Raphson Method for Root-Finding</h1></a>
+      <nav>
+        <a href="/about">About</a>
+        <a href="/help">Help</a>
+      </nav>
+    </header>
     <section>
+      <h1>Help</h1>
       <h2>Using the Newton-Raphson Root Finder</h2>
       <p>
-        To use the Newton-Raphson root finder, enter a valid mathematical function of \(x\) in the input field. You can use standard mathematical notation, such as x^2 - 4 for the function \(f(x) = x^2 - 4\).
+        To use the Newton-Raphson root finder, enter a valid mathematical function of \(x\) in the input field. You can use standard mathematical notation, such as 
+        <input data-js="function" type="text" id="function" name="function" value="x^2 + 4"> for the function 
+        <span class="math_notation_preview" data-js="function_preview">
+          <span data-js="function_text">\(f(x)\) =</span>.
+        </span>
       </p>
       <p>
-        Provide an initial guess for the root and specify a tolerance level to determine the accuracy of the result. Click the "Find root" button to start the computation.
+        Provide an initial guess \(x_0\) for the root and specify a tolerance level \(ε\) to determine the accuracy of the result. Click the "Find root" button to start the computation.
       </p>
       <h2>Understanding the Results</h2>
       <p>

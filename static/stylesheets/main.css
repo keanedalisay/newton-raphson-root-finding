@@ -27,7 +27,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.4rem;
+  font-size: 3.2rem;
 }
 h2 {
   font-size: 2.2rem;
@@ -50,6 +50,7 @@ header {
 }
 header > a > h1 {
   margin: 0;
+  font-size: 2.4rem;
 }
 header > a {
   color: inherit;
@@ -123,6 +124,6 @@ table td {
 .math_notation_preview {
   font-size: 2.4rem;
 }
-.math_notation_preview > span {
+.math_notation_preview__label {
   font-size: 1.4rem;
 }

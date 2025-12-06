@@ -75,6 +75,7 @@ if __name__ == "__main__":
 
   with app.app_context():
     url_for('static', filename='/scripts/main.js')
+    url_for('static', filename='/scripts/home.js')
     url_for('static', filename='/scripts/mathjax.js')
     url_for('static', filename='/styles/main.css')
     url_for('static', filename='/styles/home.css')
