@@ -2,3 +2,7 @@ node_modules
 .venv
 
 __pycache__
+.pytest_cache
+
+access.log
+error.log
