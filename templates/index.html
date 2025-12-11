@@ -25,14 +25,15 @@
     </header>
     <section>
       <form data-js="newton-raphson" method="post" action="/api/newton-raphson/root">
-        <label for="function"> \(f(x)\) =
+        <label for="function"> 
+          <span class="sr-only">Function</span>\(f(x) =\)  
           <input data-js="function" type="text" id="function" name="function" required>
-          <p class="math_notation_preview" data-js="function_preview"><span class="math_notation_preview__label">Preview: </span> <br> <span data-js="function_text">\(f(x)\) =</span>  </p>
+          <p class="math_notation_preview" data-js="function_preview"><span class="math_notation_preview__label">Preview: </span> <br> <span data-js="function_text">\(f(x) =\)  </span>  </p>
         </label>
-        <label for="initial_guess"> \(x_0\) =
+        <label for="initial_guess"> <span class="sr-only">Initial guess for </span> \(x_0 =\)
           <input type="text" id="initial_guess" name="initial_guess" value="1" required>
         </label>
-        <label for="tolerance"> \(ε\) =
+        <label for="tolerance"> <span class="sr-only">Tolerance level / </span> \(ε =\) 
           <input type="text" id="tolerance" name="tolerance" value="0.000001" required>
         </label>
         <button type="submit"> Find root </button>
