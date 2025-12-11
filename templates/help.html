@@ -35,6 +35,28 @@
       <p>
         Provide an initial guess \(x_0\) for the root and specify a tolerance level \(ε\) to determine the accuracy of the result. Click the "Find root" button to start the computation.
       </p>
+      <h3>Mathematical Function Format</h3>
+      <p>The function supports the following expression formats:</p>
+      <ul>
+        <li>Arithmetic operations 
+          <ul>
+            <li>Addition, subtraction, multiplication, and division</li>
+            <li>Exponentiation
+              <ul>
+                <li>Can use ** or ^</li>
+                <li>Limited to one digit</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>Algebraic operations (with the variable \(x\))</li>
+        <li>Trigonometric functions
+          <ul><li>\(sin, cos, tan, cot, sec, cosec\)</li></ul>
+        </li>
+        <li>Logarithms
+          <ul><li>\(log, ln\)</li></ul>
+        </li>
+      </ul>
       <h2>Understanding the Results</h2>
       <p>
         The results section will display the approximate root found by the Newton-Raphson method, along with the number of iterations taken to converge to that root. If the method fails to converge, an appropriate message will be shown.
