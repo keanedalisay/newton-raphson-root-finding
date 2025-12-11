@@ -17,7 +17,7 @@ body {
   font-size: 1.6rem;
 }
 main {
-  max-width: 120rem;
+  max-width: 80rem;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -68,12 +68,12 @@ nav > a {
 
 form {
   margin: 4rem 0;
-  max-width: 32rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 label {
+  width: fit-content;
   font-size: 1.8rem;
 }
 input {
