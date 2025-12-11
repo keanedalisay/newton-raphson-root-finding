@@ -127,3 +127,8 @@ table td {
 .math_notation_preview__label {
   font-size: 1.4rem;
 }
+
+.error {
+  color: #930000;
+  font-weight: 700;
+}
