@@ -6,7 +6,6 @@ import numpy as np
 
 from flask import Flask, render_template, request, jsonify, url_for
 from itertools import count
-from gunicorn.app.base import BaseApplication
 
 def create_app():
     PORT = 5000
@@ -122,31 +121,14 @@ def create_app():
 
     return app
 
-class StandaloneApplication(BaseApplication):
-    def __init__(self, app, options=None):
-        self.application = app
-        self.options = options or {}
-        super().__init__()
 
-    def load_config(self):
-        config = {key: value for key, value in self.options.items()
-                  if key in self.cfg.settings and value is not None}
-        for key, value in config.items():
-            self.cfg.set(key.lower(), value)
+if __name__ == "__main__":
+    app = create_app()
 
-    def load(self):
-        return self.application
-
-def number_of_workers():
-  return (os.cpu_count() or 1) * 2 + 1
+    if os.name == "nt":  # Windows
+        from waitress import serve
+        serve(app, host="127.0.0.1", port=5000)
+    else:  # Linux
+        app.run(host="127.0.0.1", port=5000, debug=True)
 
 
-app = create_app()
-options = {
-    'bind': f'{app.config["SERVER_NAME"]}',
-    'workers': number_of_workers(),
-    'accesslog': './access.log',
-    'errorlog': './error.log',
-    'timout': 30,
-}
-StandaloneApplication(app, options).run()
