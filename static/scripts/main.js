@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
       x: [],
       y: [],
       mode: 'markers+lines',
-      name: 'Newton iterations',
+      name: 'iteration',
       hovertext: [],
       hoverinfo: 'text+name',
       line: { color: 'crimson', dash: 'dot', width: 2 },
@@ -87,16 +87,16 @@ document.addEventListener('DOMContentLoaded', () => {
       x: [],
       y: [],
       mode: 'lines',
-      name: 'Tangent',
+      name: 'tangent line',
       line: { color: 'orange', dash: 'dash', width: 2 }
     }
 
     const layout = {
-      title: { text: 'Newton-Raphson Method', font: { size: 22 } },
+      title: { text: `Plotting f(x) = ${fx}`, font: { size: 16 } },
       xaxis: { title: 'x', zeroline: true, showgrid: true, gridcolor: '#ddd' },
       yaxis: { title: 'f(x)', zeroline: true, showgrid: true, gridcolor: '#ddd' },
-      plot_bgcolor: '#f9f9f9',
-      paper_bgcolor: '#fff',
+      plot_bgcolor: '#f0f0f0',
+      paper_bgcolor: '#f5f5f5',
       legend: { x: 0.02, y: 0.98 },
       margin: { t: 50, b: 50, l: 50, r: 50 }
     }
