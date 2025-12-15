@@ -25,7 +25,9 @@ newtonRaphsonForm.addEventListener('submit', async (event) => {
 
   const result = await response.json()
 
-  resultsSection.innerHTML = '' // Clear previous results
+  const existingPlot = resultsSection.querySelector('#plot');
+  resultsSection.innerHTML = '';
+  if (existingPlot) resultsSection.appendChild(existingPlot);
 
   if (result.status !== 200) {
     resultsSection.insertAdjacentHTML(
