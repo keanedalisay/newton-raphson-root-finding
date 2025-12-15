@@ -3,16 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Netwon-Raphson Method for Root Finding</title>
+  <title>Newton-Raphson Method for Root Finding</title>
   <link rel="stylesheet" href="/static/stylesheets/main.css" type="text/css">
   <link rel="stylesheet" href="/static/stylesheets/home.css" type="text/css">
-  <script defer type="module" src="/static/scripts/main.js"></script>
-  <script defer type="module" src="/static/scripts/home.js"></script>
   <script defer type="module" src="/static/scripts/mathjax.js"></script>
   <script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libertinus+Math&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
   <main>
@@ -23,25 +18,42 @@
         <a href="/help">Help</a>
       </nav>
     </header>
+
     <section>
       <form data-js="newton-raphson" method="post" action="/api/newton-raphson/root">
         <label for="function"> 
           <span class="sr-only">Function</span>\(f(x) =\)  
           <input data-js="function" type="text" id="function" name="function" required>
-          <p class="math_notation_preview" data-js="function_preview"><span class="math_notation_preview__label">Preview: </span> <br> <span data-js="function_text">\(f(x) =\)  </span>  </p>
+          <p class="math_notation_preview" data-js="function_preview">
+            <span class="math_notation_preview__label">Preview: </span><br>
+            <span data-js="function_text">\(f(x) =\)</span>
+          </p>
         </label>
-        <label for="initial_guess"> <span class="sr-only">Initial guess for </span> \(x_0 =\)
+
+        <label for="initial_guess">
+          <span class="sr-only">Initial guess for </span> \(x_0 =\)
           <input type="text" id="initial_guess" name="initial_guess" value="1" required>
         </label>
-        <label for="tolerance"> <span class="sr-only">Tolerance level / </span> \(ε =\) 
+
+        <label for="tolerance">
+          <span class="sr-only">Tolerance level / </span> \(ε =\) 
           <input type="text" id="tolerance" name="tolerance" value="0.000001" required>
         </label>
-        <button type="submit"> Find root </button>
+
+        <button type="submit">Find root</button>
       </form>
     </section>
+
     <hr>
+
     <section class="results-section" data-js="results-section">
+      <div id="plot" style="width:100%; height:500px;"></div>
     </section>
   </main>
+
+  <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjs@11/lib/browser/math.js"></script>
+  <script type="module" src="/static/scripts/main.js"></script>
+  <script type="module" src="/static/scripts/home.js"></script>
 </body>
 </html>
