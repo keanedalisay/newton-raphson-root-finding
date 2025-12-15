@@ -31,7 +31,7 @@ newtonRaphsonForm.addEventListener('submit', async (event) => {
 
   if (result.status !== 200) {
     resultsSection.insertAdjacentHTML(
-      'beforeend',
+      'afterbegin',
       `
       <h2 class="error">Status Code: ${result.status}</h2>
       <p class="error">${result.message}</p>
@@ -45,7 +45,7 @@ newtonRaphsonForm.addEventListener('submit', async (event) => {
   }
 
   resultsSection.insertAdjacentHTML(
-    'beforeend',
+    'afterbegin',
     `
     <h2>Root-Finding Results</h2>
     <p>With <b>${result.iterations} iterations</b>, the approximate root is <b>${result.root_approximation}</b>.</p>
